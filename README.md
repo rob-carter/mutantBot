@@ -13,3 +13,5 @@
 ### 2) get depends like FFMPEG
 ### 3) ???
 ### 4) Profit!
+
+#### todo: allow for non yt stuff, filters, autoplaylist, loop!!...

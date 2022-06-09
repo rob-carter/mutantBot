@@ -29,7 +29,7 @@ for (const file of eventFiles) {
 	}
 }
 
-client.Player = new Player(client, {
+client.player = new Player(client, {
 	ytdlOptions: {
 		quality: 'highestaudio',
 		highWaterMark: 1 << 25
