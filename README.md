@@ -11,5 +11,5 @@
 }
 ```
 ### 2) get depends like FFMPEG
-### 3) ...
-### 4) Profit?
+### 3) ???
+### 4) Profit!
