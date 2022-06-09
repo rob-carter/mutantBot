@@ -1,6 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Intents } = require('discord.js');
+const { Player } = require('discord-player')
 const { token } = require('./config.json');
 
 const myIntents = new Intents();
@@ -27,5 +28,12 @@ for (const file of eventFiles) {
 		client.on(event.name, (...args) => event.execute(...args));
 	}
 }
+
+client.Player = new Player(client, {
+	ytdlOptions: {
+		quality: 'highestaudio',
+		highWaterMark: 1 << 25
+	}
+})
 
 client.login(token);
