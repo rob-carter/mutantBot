@@ -4,7 +4,7 @@ const { Client, Collection, Intents } = require('discord.js');
 const { token } = require('./config.json');
 
 const myIntents = new Intents();
-myIntents.add(Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_VOICE_STATES);
+myIntents.add(Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_VOICE_STATES);
 const client = new Client({ intents: myIntents });
 
 client.commands = new Collection();
