@@ -1,0 +1,27 @@
+{
+  "name": "mutantbot",
+  "version": "1.0.0",
+  "description": "discord music bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rob-carter/mutantBot.git"
+  },
+  "author": "Rob Carter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rob-carter/mutantBot/issues"
+  },
+  "homepage": "https://github.com/rob-carter/mutantBot#readme",
+  "dependencies": {
+    "@discordjs/builders": "^0.15.0",
+    "@discordjs/opus": "^0.7.0",
+    "@discordjs/rest": "^0.5.0",
+    "discord-api-types": "^0.33.5",
+    "discord-player": "^5.2.2",
+    "discord.js": "^13.8.0"
+  }
+}
