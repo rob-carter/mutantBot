@@ -3,6 +3,8 @@ const path = require('node:path');
 const { Client, Collection, Intents } = require('discord.js');
 const { Player } = require('discord-player')
 //const { token } = require('./config.json');
+const dotenv = require('dotenv')
+dotenv.config()
 
 const myIntents = new Intents();
 myIntents.add(Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_VOICE_STATES);
@@ -35,5 +37,4 @@ client.player = new Player(client, {
 		highWaterMark: 1 << 25
 	}
 })
-
 client.login(process.env.TOKEN);

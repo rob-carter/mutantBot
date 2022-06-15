@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { QueueRepeatMode } = require('discord-player');
-//const { autoplay } = require('../config.json');
-
+const dotenv = require('dotenv')
+dotenv.config()
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('autoplay')
