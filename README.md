@@ -1,14 +1,12 @@
 # mutantBot
 ## discord music bot using discord.js and discord-player
 
-### 1) create ./config.json
-```json
-{
-    "token": "",
-    "clientId": "",
-    "guildId": "",
-    "autoplay": ""
-}
+### 1) create .env
+```.env
+TOKEN = 
+CLIENTID =
+GUILDID = 
+AUTOPLAY =
 ```
 ### 2) get depends like FFMPEG
 ### 3) ???

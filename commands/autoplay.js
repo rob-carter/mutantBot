@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { QueueRepeatMode } = require('discord-player');
-const { autoplay } = require('../config.json');
+//const { autoplay } = require('../config.json');
 
 module.exports = {
 	data: new SlashCommandBuilder()

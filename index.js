@@ -2,7 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Intents } = require('discord.js');
 const { Player } = require('discord-player')
-const { token } = require('./config.json');
+//const { token } = require('./config.json');
 
 const myIntents = new Intents();
 myIntents.add(Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_VOICE_STATES);
@@ -36,4 +36,4 @@ client.player = new Player(client, {
 	}
 })
 
-client.login(token);
+client.login(process.env.TOKEN);
