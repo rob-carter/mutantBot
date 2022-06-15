@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js')
 const { QueryType } = require('discord-player')
+fs = require('fs');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('play')
@@ -94,9 +95,10 @@ module.exports = {
                 .setColor('#d5685e')
         }
         if (!queue.playing) {
+            console.log('Starting play back...')
             await queue.connect(interaction.member.voice.channel)
             await queue.play()
         }
-        await interaction.reply({embeds: [embed]})
+        //await interaction.reply({embeds: [embed]})
     },
 };
