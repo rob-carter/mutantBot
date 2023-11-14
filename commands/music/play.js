@@ -9,7 +9,8 @@ module.exports = {
         ),
     async execute(interation) {
         const input = interation.options.getString('source');
-        console.log(input)
-        //interation.client.distube.play(interation.message.member.voiceChannel, "WARNING touhou", { position: 1 })
+        const voice = interation.guild.members.cache.get(interation.member.user.id).voice.channel;
+
+        await interation.client.distube.play(voice, input, { skip: true });
     }
 }
