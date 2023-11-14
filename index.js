@@ -14,7 +14,8 @@ client.distube = new DisTube(client, {
     leaveOnStop: false,
     plugins: [
         new YtDlpPlugin()
-    ]
+    ],
+    youtubeCookie: JSON.parse(fs.readFileSync('cookies.json'))
 })
 
 client.commands = new Collection();
