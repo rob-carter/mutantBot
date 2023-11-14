@@ -15,6 +15,7 @@ client.distube = new DisTube(client, {
     plugins: [
         new YtDlpPlugin()
     ],
+    nsfw: true,
     youtubeCookie: JSON.parse(fs.readFileSync('cookies.json'))
 })
 
