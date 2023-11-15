@@ -7,11 +7,4 @@
 6. profit
 
 ## todo:
-* emit song info to channel
-* shuffle
-* skip
-* loop
-* playlist n othersite support (might be done already)
-* show queue
-* implement buttons
 * filters
