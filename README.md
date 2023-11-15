@@ -8,3 +8,4 @@
 
 ## todo:
 * filters
+* bug squashing
