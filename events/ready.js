@@ -17,11 +17,11 @@ module.exports = {
             var currentdate = new Date();
             var datetime = currentdate.getDate() + "/"
                 + (currentdate.getMonth() + 1) + "/"
-                + currentdate.getFullYear() + " @ "
+                + currentdate.getFullYear() + "@"
                 + currentdate.getHours() + ":"
                 + currentdate.getMinutes()
 
-            console.log('* ', song.name, song.url, datetime);
+            console.log(`* ${song.name} | ${song.url} | ${datetime}`);
             eventEmitter.emit('playSong', queue, song);
         });
 
