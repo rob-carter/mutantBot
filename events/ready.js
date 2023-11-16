@@ -18,7 +18,7 @@ module.exports = {
             var datetime = currentdate.getDate() + "/"
                 + (currentdate.getMonth() + 1) + "/"
                 + currentdate.getFullYear() + "@"
-                + currentdate.getHours() + ":"
+                + currentdate.getHours() % 12 + ":"
                 + currentdate.getMinutes()
 
             console.log(`* ${song.name} | ${song.url} | ${datetime}`);
