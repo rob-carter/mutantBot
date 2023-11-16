@@ -10,3 +10,4 @@
 * filters
 * bug squashing
 * get it hosted
+* bypass login requirement
