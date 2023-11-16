@@ -9,3 +9,4 @@
 ## todo:
 * filters
 * bug squashing
+* get it hosted
