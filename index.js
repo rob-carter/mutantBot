@@ -1,30 +1,23 @@
-const fs = require('node:fs');
+const fs = require('fs');
 const path = require('node:path');
-const {Client, Collection, Events, GatewayIntentBits} = require('discord.js');
-const { DisTube } = require('distube');
-const { YtDlpPlugin } = require('@distube/yt-dlp')
-
-require('dotenv').config();
-
-const client = new Client({
-    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates]
+const { Client, Collection, GatewayIntentBits } = require('discord.js');
+const dotenv = require('dotenv');
+dotenv.config();
+const token = process.env.TOKEN;
+const client = new Client({ 
+    intents: [
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.GuildMembers,
+        GatewayIntentBits.GuildMessageReactions,
+        GatewayIntentBits.GuildVoiceStates,
+    ]
 });
-
-client.distube = new DisTube(client, {
-    leaveOnStop: false,
-    plugins: [
-        new YtDlpPlugin()
-    ],
-    nsfw: true,
-    youtubeCookie: JSON.parse(fs.readFileSync('cookies.json'))
-})
-
 client.commands = new Collection();
-
-const foldersPath = path.join(__dirname, 'commands');
-const commandFolders = fs.readdirSync(foldersPath);
+const folderPath = path.join(__dirname, 'commands');
+const commandFolders = fs.readdirSync(folderPath);
 for (const folder of commandFolders) {
-    const commandsPath = path.join(foldersPath, folder);
+    const commandsPath = path.join(folderPath, folder);
     const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
     for (const file of commandFiles) {
         const filePath = path.join(commandsPath, file);
@@ -36,17 +29,15 @@ for (const folder of commandFolders) {
         }
     }
 }
-
 const eventsPath = path.join(__dirname, 'events');
 const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
 for (const file of eventFiles) {
     const filePath = path.join(eventsPath, file);
     const event = require(filePath);
     if (event.once) {
-        client.once(event.name, (...args) => event.execute(...args));
+        client.once(event.name, (...args) => event.execute(...args, client));
     } else {
-        client.on(event.name, (...args) => event.execute(...args));
+        client.on(event.name, (...args) => event.execute(...args, client));
     }
 }
-
-client.login(process.env.TOKEN);
+client.login(token);

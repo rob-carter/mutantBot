@@ -1,0 +1,29 @@
+{
+  "name": "mutantbot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rob-carter/mutantBot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rob-carter/mutantBot/issues"
+  },
+  "homepage": "https://github.com/rob-carter/mutantBot#readme",
+  "description": "",
+  "dependencies": {
+    "@discord-player/extractor": "^7.1.0",
+    "discord-player": "^7.1.0",
+    "discord.js": "^14.18.0",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
