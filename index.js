@@ -3,6 +3,7 @@ const path = require('node:path');
 const { Client, Collection, GatewayIntentBits } = require('discord.js');
 const { Player } = require('discord-player');
 const { DefaultExtractors } = require('@discord-player/extractor');
+const { YoutubeiExtractor } = require('discord-player-youtubei');
 const dotenv = require('dotenv');
 dotenv.config();
 const token = process.env.TOKEN;
@@ -18,6 +19,7 @@ async function main() {
     });
     const player = new Player(client);
     await player.extractors.loadMulti(DefaultExtractors);
+    await player.extractors.register(YoutubeiExtractor, {});
     client.commands = new Collection();
     const folderPath = path.join(__dirname, 'commands');
     const commandFolders = fs.readdirSync(folderPath);
