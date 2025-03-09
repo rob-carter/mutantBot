@@ -21,7 +21,6 @@ module.exports = {
 					metadata: interaction
 				}
 			});
-			console.log(track);
 			return interaction.followUp(`${track.title} has been added to the queue!`);
 		} catch (error) {
 			console.error(error);
@@ -29,3 +28,5 @@ module.exports = {
 		}
 	}
 };
+
+//when queue and new track to top of list!!
