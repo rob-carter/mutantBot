@@ -31,7 +31,6 @@ module.exports = {
 					}
 				});
 				queue.tracks.shuffle();
-				queue.node.skip();
 				return interaction.followUp('playing autoplaylist!');
 			} catch (error) {
 				console.error(error);
