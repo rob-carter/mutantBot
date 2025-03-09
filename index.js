@@ -19,7 +19,12 @@ async function main() {
     });
     const player = new Player(client);
     await player.extractors.loadMulti(DefaultExtractors);
-    await player.extractors.register(YoutubeiExtractor, {});
+    const cookiesPath = path.join(__dirname, 'cookies.json');
+    const cookies = JSON.parse(fs.readFileSync(cookiesPath, 'utf8'));
+    const cookieString = cookies.join('; ');
+    await player.extractors.register(YoutubeiExtractor, {
+        cookie: cookieString
+    });
     client.commands = new Collection();
     const folderPath = path.join(__dirname, 'commands');
     const commandFolders = fs.readdirSync(folderPath);
