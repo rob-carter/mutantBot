@@ -25,7 +25,7 @@ module.exports = {
 			return interaction.followUp(`${track.title} has been added to the queue!`);
 		} catch (error) {
 			console.error(error);
-			return interaction.followUp('something went wrong');
+			return interaction.followUp('something went wrong with playing that track.');
 		}
 	}
 };
