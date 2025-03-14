@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const { useQueue, useMainPlayer, Player } = require('discord-player');
+const { useQueue, useMainPlayer } = require('discord-player');
 const dotenv = require('dotenv');
 dotenv.config();
 module.exports = {
@@ -38,12 +38,22 @@ module.exports = {
 			}
 		}
 		try {
-			const { track } = await player.play(channel, query, {
-				nodeOptions : {
-					metadata: interaction
-				}
-			});
-			return interaction.followUp(`${track.title} has been added to the queue!`);
+			// const { track } = await player.play(channel, query, {
+			// 	nodeOptions : {
+			// 		metadata: interaction
+			// 	}
+			// });
+			// return interaction.followUp(`${track.title} has been added to the queue!`);
+			track = await player.search(query, { requestedBy: interaction.user });
+			queue.insertTrack(track.tracks[0]);
+			if (!queue.isPlaying()) {
+				await player.play(channel, "https://www.youtube.com/watch?v=1VXMLuZkq1g", { //TODO: remove this hack
+					nodeOptions : {
+						metadata: interaction
+					}
+				});
+			}
+			return interaction.followUp(`${track.tracks[0].title} has been added to the queue!`);
 		} catch (error) {
 			console.error(error);
 			return interaction.followUp('something went wrong with playing that track.');
