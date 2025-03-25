@@ -19,7 +19,6 @@ module.exports = {
 					metadata: interaction
 				}
 			});
-            queue.tracks.shuffle();
 			return interaction.followUp('playing your autoplaylist');
 		} catch (error) {
 			console.error(error);
