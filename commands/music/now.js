@@ -14,7 +14,9 @@ module.exports = {
 		const channel = interaction.member.voice.channel;
 		if (!channel)
 			return interaction.reply('you need to be in a voice channel!');
-        if (!queue) {
+		const query = interaction.options.getString('query', true);
+		await interaction.deferReply();
+        if (!queue || queue.node.isIdle()) {
 			try {
 				const { track } = await player.play(channel, query, {
 					nodeOptions : {
@@ -27,8 +29,6 @@ module.exports = {
 				return interaction.followUp('something went wrong with playing that track.');
 			}
         }
-		const query = interaction.options.getString('query', true);
-		await interaction.deferReply();
 		try {
 			current = queue.currentTrack;
 			search = await player.search(query, { requestedBy: interaction.user });
