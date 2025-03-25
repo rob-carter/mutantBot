@@ -15,12 +15,31 @@ module.exports = {
 		if (!channel)
 			return interaction.reply('you need to be in a voice channel!');
         if (!queue) {
-            queue = player.nodes.create(interaction.guild, {
-                metadata: interaction
-            });
+			try {
+				const { track } = await player.play(channel, query, {
+					nodeOptions : {
+						metadata: interaction
+					}
+				});
+				return interaction.followUp(`${track.title} has been added to the queue!`);
+			} catch (error) {
+				console.error(error);
+				return interaction.followUp('something went wrong with playing that track.');
+			}
         }
 		const query = interaction.options.getString('query', true);
 		await interaction.deferReply();
-		return interaction.reply(':-)');
+		try {
+			current = queue.currentTrack;
+			search = await player.search(query, { requestedBy: interaction.user });
+			queue.insertTrack(search.tracks[0], 0)
+			queue.node.skip();
+			queue.insertTrack(current, 0)
+			return interaction.followUp(`${search.tracks[0].title} will begin playing now!`);
+		} catch(error) {
+			console.error(error);
+			return interaction.reply('something went wrong with playing now...');
+		}
+		
 	}
 };
