@@ -14,7 +14,7 @@ module.exports = {
 			return interaction.reply('you need to be in a voice channel!'); 
 		await interaction.deferReply();
 		try {
-			await player.play(channel, process.env.TOKEN, {
+			await player.play(channel, process.env.AUTO, {
 				nodeOptions : {
 					metadata: interaction
 				}
