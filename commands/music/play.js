@@ -12,7 +12,6 @@ module.exports = {
 				.setRequired(true)),
 	async execute(interaction) {
 		const player = useMainPlayer();
-		let queue = useQueue(interaction.guild.id);
 		const channel = interaction.member.voice.channel;
 		if (!channel)
 			return interaction.reply('you need to be in a voice channel!'); 
