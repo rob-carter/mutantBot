@@ -34,7 +34,6 @@ module.exports = {
 			search = await player.search(query, { requestedBy: interaction.user });
 			queue.insertTrack(search.tracks[0], 0)
 			queue.node.skip();
-			queue.insertTrack(current, 0)
 			return interaction.followUp(`${search.tracks[0].title} will begin playing now!`);
 		} catch(error) {
 			console.error(error);
