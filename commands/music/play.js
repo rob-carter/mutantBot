@@ -1,7 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const { useQueue, useMainPlayer } = require('discord-player');
-const dotenv = require('dotenv');
-dotenv.config();
+const { useMainPlayer } = require('discord-player');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('play')
