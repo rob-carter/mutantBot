@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, enableValidators } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
 const { useQueue, useMainPlayer } = require('discord-player');
 const dotenv = require('dotenv');
 dotenv.config();
